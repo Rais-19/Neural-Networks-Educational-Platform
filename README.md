@@ -1,23 +1,64 @@
-# 🧠 Neural Networks Educational Platform
+# 🧠 NeuroLab — Neural Networks Educational Platform
 
-> **Interactive educational platform that visualizes how neural networks learn, from basic perceptrons to multi-layer networks. Users can experiment with architectures, watch real-time training, and understand backpropagation through hands-on exploration.**
+> Build it. Break it. Understand it.
 
+An interactive platform to learn how neural networks work — built entirely from scratch using Python and NumPy. No TensorFlow, no PyTorch, no black boxes.
 
-##  What Makes This Project Different?
+🚀 **Live Demo → [neurolab.streamlit.app]https://neural-networks-educational-platform-bxj4k3a53qk7et6difbqqp.streamlit.app/**
 
-**Not just another neural network library** — this is a **learning platform** that shows you what happens *inside* the network while it trains. Every weight update, every decision boundary shift, every loss drop is visualized in real-time.
+---
 
-##  Key Features
+## Project Structure
 
-| Feature | What You Can Do |
-|---------|-----------------|
-| **📊 Interactive UI** | Load CSV, choose model, adjust hyperparameters, click "Train" — watch learning happen |
-| **🎯 Multiple Models** | Historical Perceptron → Modern Perceptron → Multi-Layer Perceptron (MLP) |
-| **📈 Real-time Viz** | Loss curves, accuracy plots, decision boundaries updating every epoch |
-| **🔬 Built-in Experiments** | 3 mandatory experiments comparing architectures, depth, regularization |
-| **📉 Complete Metrics** | Accuracy, Precision, Recall, F1, Confusion Matrix, MSE, RMSE, R² |
+```
+neural-platform/
+│
+├── backend/
+│   ├── models/
+│   │   ├── perceptron.py        # Historical + Modern Perceptron
+│   │   └── mlp.py               # Full MLP (forward, backprop, dropout, L2)
+│   │
+│   ├── utils/
+│   │   ├── activation.py        # Sigmoid, ReLU, Tanh, Softmax + derivatives
+│   │   ├── loss.py              # MSE, Binary CE, Categorical CE + gradients
+│   │   ├── metrics.py           # Accuracy, F1, Confusion Matrix, R²
+│   │   ├── datasets.py          # Dataset generators + CSV loader
+│   │   └── visualization.py     # All matplotlib plots
+│   │
+│   └── __init__.py
+│
+├── frontend/
+│   └── app.py                   # Streamlit app (5 tabs)
+│
+├── EDAs/                        # All saved experiment visualizations
+│   ├── 0_EDA/
+│   ├── 1_Activations/
+│   ├── 2_Exp1_Perceptron_vs_MLP/
+│   ├── 3_Exp2_Layer_Depth/
+│   ├── 4_Exp3_Regularization/
+│   ├── 5_Multiclass_Regression/
+│   ├── 6_Weight_Init_LR/
+│   └── 7_Optimizer_Variants/
+│
+├── generate_edas.py           
+├── requirements.txt
+└── README.md
+```
 
-## 🚀 Quick Start
+---
 
-# Launch platform
-streamlit run frontend/app.py
+## What's Inside
+
+| Tab | Description |
+|---|---|
+| 🎯 Train & Evaluate | Configure any model, train it, see metrics + visualizations |
+| ⚔️ Exp 1: Perceptron vs MLP | Why linear models fail on non-linear data |
+| 📊 Exp 2: Layer Depth | How depth affects accuracy and boundaries |
+| 🔬 Exp 3: Regularization | Overfitting vs L2, Dropout, Early Stopping |
+| 📚 Theory | Plain-language reference for every concept |
+
+---
+
+## Stack
+
+Python · NumPy · Streamlit · Matplotlib · scikit-learn (dataset generation only)
